@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gitApp">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub API Information</title>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="assets/scripts/client.min.js"></script>
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body ng-controller="gitController">
+        <h1>Projects currently on Github for user: <b>{{user}}</b></h1>
+        <!--<h3>{{test}}</h3>-->
+        <ul ng-repeat="info in data.data">
+            <li class="fancy">{{info.repo.name}}</li>
+            <li class="dark">{{info.payload.commits[0].message || "(no commit message)"}}</li>
+            <li><b>repo ID: </b>{{info.repo.id}}</li>
+            <li><a href="https://github.com/{{info.repo.name}}" target="_blank">https://github.com/{{info.repo.name}}</a></li>
+        </ul>
+</body>
+</html>
